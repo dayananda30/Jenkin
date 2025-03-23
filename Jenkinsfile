@@ -47,11 +47,11 @@ pipeline {
 
                     // Optionally commit the version change so next build starts with an updated version.
                     // Uncomment the following lines if your workflow includes committing changes back to Git.
-                    /*
-                    sh "git config user.email 'jenkins@example.com'"
-                    sh "git config user.name 'Jenkins'"
+
+                    sh "git config user.email 'dayananda30@gmail.com'"
+                    sh "git config user.name 'dayananda30'"
                     sh "git commit -am 'Bump version to ${newVersion}'"
-                    */
+                    sh git push origin main
                 }
             }
         }
