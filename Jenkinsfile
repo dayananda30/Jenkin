@@ -10,7 +10,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // Clean, compile, and test the project
-                mvn clean install
+                sh '/opt/homebrew/bin/mvn clean install'
             }
         }
     }
