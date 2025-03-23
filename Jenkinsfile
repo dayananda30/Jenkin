@@ -40,7 +40,7 @@ pipeline {
                 script {
                     // Construct a new version using BASE_VERSION and the Jenkins BUILD_NUMBER.
                     def newVersion = "${env.BASE_VERSION}.${env.BUILD_NUMBER}"
-                    sh "git pull"
+                    sh "git pull origin main"
                     echo "Updating Maven project version to ${newVersion}"
 
                     // Update the pom.xml version using the Maven versions:set goal.
