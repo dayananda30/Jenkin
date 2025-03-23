@@ -57,7 +57,7 @@ pipeline {
                     sh "git pull origin main"
 
                     // Push the updated commits back to the remote repository.
-                    sh "git push origin main"
+                    // sh "git push origin main"
                 }
             }
         }
