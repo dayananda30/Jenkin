@@ -55,26 +55,14 @@ pipeline {
                 sh "/opt/homebrew/bin/mvn clean install"
             }
         }
-
         stage('Upload to Artifactory') {
             steps {
-                // Use credentials with id 'artifactory-creds' which maps to ARTIFACTORY_USER and ARTIFACTORY_PASSWORD.
-                // withCredentials([usernamePassword(credentialsId: 'artifactory-creds', usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
-                    // script {
-                        // Construct a target artifact path in the Artifactory repository using group id as a directory structure.
-                        // def artifactPath = "${GROUP_ID.replace('.', '/')}/${ARTIFACT_ID}/${VERSION}/${JAR_NAME}"
-                        echo "Uploading Jar to Artifactory...................."
-                        //echo "Uploading ${JAR_NAME} to: ${ARTIFACTORY_URL}/${ARTIFACTORY_REPO}/${artifactPath}"
-
-                        // Use curl to upload the artifact. Adjust the target path if necessary.
-                        //sh """
-                            //curl -u ${ARTIFACTORY_USER}:${ARTIFACTORY_PASSWORD} -T target/${JAR_NAME} \
-                            //"${ARTIFACTORY_URL}/${ARTIFACTORY_REPO}/${artifactPath}"
-                        //"""
-                    }
+                script {
+                    echo "Uploading artifacts to artifactory..........."
                 }
             }
         }
+    }
     post {
         success {
             echo 'Build and tests passed!'
