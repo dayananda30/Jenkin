@@ -51,7 +51,7 @@ pipeline {
                     sh "git config user.email 'dayananda30@gmail.com'"
                     sh "git config user.name 'dayananda30'"
                     sh "git commit -am 'Bump version to ${newVersion}'"
-                    sh "git push origin main"
+                    sh "git push origin main --force"
                 }
             }
         }
