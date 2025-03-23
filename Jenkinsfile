@@ -43,7 +43,7 @@ pipeline {
                     echo "Updating Maven project version to ${newVersion}"
 
                     // Update the pom.xml version using the Maven versions:set goal.
-                    sh "mvn versions:set -DnewVersion=${newVersion} -DgenerateBackupPoms=false"
+                    sh "/opt/homebrew/bin/mvn versions:set -DnewVersion=${newVersion} -DgenerateBackupPoms=false"
 
                     // Optionally commit the version change so next build starts with an updated version.
                     // Uncomment the following lines if your workflow includes committing changes back to Git.
