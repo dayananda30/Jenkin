@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>simple-maven-app</artifactId>
+  <artifactId>Jenkin</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>simple-maven-app</name>
+  <name>Jenkin</name>
   <url>http://maven.apache.org</url>
 
   <properties>
