@@ -55,9 +55,8 @@ pipeline {
                 sh "/opt/homebrew/bin/mvn clean install"
             }
         }
-    }
 
-    stage('Upload to Artifactory') {
+        stage('Upload to Artifactory') {
             steps {
                 // Use credentials with id 'artifactory-creds' which maps to ARTIFACTORY_USER and ARTIFACTORY_PASSWORD.
                 // withCredentials([usernamePassword(credentialsId: 'artifactory-creds', usernameVariable: 'ARTIFACTORY_USER', passwordVariable: 'ARTIFACTORY_PASSWORD')]) {
@@ -76,7 +75,6 @@ pipeline {
                 }
             }
         }
-
     post {
         success {
             echo 'Build and tests passed!'
