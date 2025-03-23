@@ -45,19 +45,6 @@ pipeline {
                     // Update the pom.xml version using the Maven Versions Plugin.
                     // Adjust the Maven path if needed (here, /opt/homebrew/bin/mvn is used).
                     sh "/opt/homebrew/bin/mvn versions:set -DnewVersion=${newVersion} -DgenerateBackupPoms=false"
-
-                    // Configure Git user details for committing version changes.
-                    sh "git config user.email 'dayananda30@gmail.com'"
-                    sh "git config user.name 'dayananda30'"
-
-                    // Commit the updated pom.xml if there are any changes.
-                    sh "git commit -am 'Bump version to ${newVersion}' || echo 'No changes to commit.'"
-
-                    // Pull remote changes first in order to integrate any new commits.
-                    sh "git pull origin main"
-
-                    // Push the updated commits back to the remote repository.
-                    // sh "git push origin main"
                 }
             }
         }
