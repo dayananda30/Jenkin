@@ -10,7 +10,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // Clean, compile, and test the project
-                sh 'mvn clean install'
+                mvn clean install
             }
         }
     }
