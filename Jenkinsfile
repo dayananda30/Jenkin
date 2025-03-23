@@ -40,6 +40,7 @@ pipeline {
                 script {
                     // Construct a new version using BASE_VERSION and the Jenkins BUILD_NUMBER.
                     def newVersion = "${env.BASE_VERSION}.${env.BUILD_NUMBER}"
+                    sh "git pull"
                     echo "Updating Maven project version to ${newVersion}"
 
                     // Update the pom.xml version using the Maven versions:set goal.
@@ -48,10 +49,11 @@ pipeline {
                     // Optionally commit the version change so next build starts with an updated version.
                     // Uncomment the following lines if your workflow includes committing changes back to Git.
 
+
                     sh "git config user.email 'dayananda30@gmail.com'"
                     sh "git config user.name 'dayananda30'"
                     sh "git commit -am 'Bump version to ${newVersion}'"
-                    sh "git push origin main --force"
+                    sh "git push origin main"
                 }
             }
         }
