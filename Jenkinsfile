@@ -23,7 +23,7 @@ pipeline {
                     echo "Building branch: ${branch}"
 
                     // Set a flag to update version only on main branch.
-                    if (branch == "main") {
+                    if (branch == "origin/main") {
                         env.IS_MAIN = "true"
                     } else {
                         env.IS_MAIN = "false"
