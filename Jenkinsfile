@@ -4,15 +4,23 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checks out code from the specified Git repository
-                git url: 'https://github.com/dayananda30/Jenkin.git', branch: 'main'
+                checkout scm
             }
         }
-        stage('Build') {
+        stage('Build and Test') {
             steps {
-                // Replace the echo with your actual build command(s)
-                echo "Building the project..."
+                // Clean, compile, and test the project
+                sh 'mvn clean install'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and tests passed!'
+        }
+        failure {
+            echo 'There were errors in the build or tests.'
         }
     }
 }
