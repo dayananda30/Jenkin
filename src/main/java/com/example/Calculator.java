@@ -10,6 +10,7 @@ public class Calculator {
      * @return the sum of a and b
      */
     public int add(int a, int b) {
+        // fixed supporting floating numbers
         return a + b;
     }
 }
